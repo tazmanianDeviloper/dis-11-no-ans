@@ -1,0 +1,32 @@
+{
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "firstName": { "type": "string" },
+        "lastName": { "type": "string" }
+      },
+      "required": ["id", "firstName", "lastName"]
+    },
+    "Query": {
+      "type": "object",
+      "properties": {
+        "students": { "type": "array", "items": { "$ref": "#/definitions/Student" } },
+        "student": { "type": "string" }
+      },
+      "required": ["students", "student"]
+    },
+    "Mutation": {
+      "type": "object",
+      "properties": {
+        "createStudent": { "$ref": "#/definitions/Student" },
+        "updateStudent": { "$ref": "#/definitions/Student" },
+        "deleteStudent": { "$ref": "#/definitions/Student" }
+      },
+      "required": ["createStudent", "updateStudent", "deleteStudent"]
+    }
+  },
+  "required": ["type", "Query", "Mutation"]
+}
